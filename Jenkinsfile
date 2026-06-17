@@ -6,25 +6,25 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/omsambhar/spotify_clone.git'
+                    url: 'https://github.com/omsambhar/spotify_clone.git'
             }
         }
 
         stage('Install') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'cp -r build/* /var/www/spotify/'
+                bat 'echo Deploy step here'
             }
         }
     }
